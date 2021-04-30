@@ -1,0 +1,28 @@
+.divTable
+{
+    display:  table;
+    width:auto;
+    background-color:#eee;
+    border:1px solid  #666666;
+    border-spacing:5px;
+}
+
+.headRow .divCell {
+  font-weight: bold;
+  color: #fff;
+  background-color:rgb(58, 58, 58);
+}
+
+.headRow, .divRow
+{
+  width: auto;
+  flex-direction: row;
+  display: flex;
+}
+
+.divCell
+{
+    width:150px;
+    border: 1px dashed #ccc;
+    padding: 10px;
+}
