@@ -1,17 +1,19 @@
-import React, {useState, useEffect} from 'react';
-import logo from './logo.svg';
+import React, { useState, useEffect, useRef } from 'react';
+import Logo from './Logo';
 import './App.css';
 import Repotable from './components/Repotable';
-import {getRepo} from './Service';
+import { getRepo } from './Service';
 
 function App() {
   const [repoList, setRepoList] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const logoRef = useRef();
 
   useEffect(() => {
     getRepo()
-      .then(res => res.json())
       .then(res => {
         setRepoList(res);
+        setLoading(false);
       })
   }, []);
 
@@ -21,7 +23,8 @@ function App() {
         <strong className="app-title">Repo List View</strong>
       </header>
       <main className="container">
-        <Repotable repoList={repoList} data-testid="repotable" />
+        {!!loading && <img src="/ajax-loader.gif" />}
+        {!loading && <Repotable repoList={repoList} data-testid="repotable" />}
       </main>
     </div>
   );

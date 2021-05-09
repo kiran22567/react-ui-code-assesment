@@ -24,10 +24,10 @@ function Repotable({ repoList = [] }) {
         repoList.map(l =>
           <div key={l.id} className="divRow" data-testid="divRow">
             <div className="divCell">{getVal(l, 'name')}</div>
-            <div className="divCell">{getVal(l, 'description')}</div>
-            <div className="divCell">{getVal(l, 'created_at')}</div>
-            <div className="divCell">{yesOrNo(l.has_issues)}</div>
-            <div className="divCell">{yesOrNo(l.disabled)}</div>
+            <div className="divCell">{getVal(l, 'current_version')}</div>
+            <div className="divCell">{getVal(l, 'latest_version')}</div>
+            <div className="divCell">{yesOrNo(l.isOutdated)}</div>
+            <div className="divCell">{yesOrNo(l.isVulnerable)}</div>
           </div>
         )
       }
